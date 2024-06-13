@@ -98,7 +98,7 @@ In this starter arduino project, I used the PIR Motion Sensor as my input and a 
 
 # Schematics
 
-
+![Headstone Image](PIRdiagram.png)
 
 # Code
 
