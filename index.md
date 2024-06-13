@@ -1,5 +1,5 @@
 # Omniwheel
-project description:
+The omniwheel will be able to move in any direction: forward, backward, right, left, and even diagonally! Not only will it be able to move but also avoid obstacles in its way. Its wheels allow this "car" to move anywhere and avoid anything. 
 
 You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
 ```HTML 
