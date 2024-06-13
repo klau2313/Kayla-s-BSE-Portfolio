@@ -90,6 +90,52 @@ One of the best parts about Github is that you can view how other people set up 
 
 To watch the BSE tutorial on how to create a portfolio, click here.
 
-# Starter Project
+# Starter Arduino PIR Motion Sensor
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gFlQUq_p7wg?si=AjYj2I2Vaek6ZTxY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+In this starter arduino project, I used the PIR Motion Sensor as my input and a LED as the output. The PIR motion sensor is able to make the LED light up because it is an infared sensor. This means it detects infrared light emitted from nearby objects. When detected, it sends a signal that causes the LED to turn on. All objects emit some type of infrared radiation which is translated as thermal energy that the PIR can pick up. It also uses potentiometers that can focus on the time and distance of when to signal the output. These potentiometers can be moved clockwise to change how far an object it will detect and how much time for the LED to turn on. This is all connected to the arduino which reads the code that instructs how the LED will turn on. It starts with the PIR state as "LOW" meaning off and when it detects motion the state will change to "HIGH" meaning on. This translates to the LED which will turn on and off based on the PIR's state. 
+
+# Schematics
+
+
+
+# Code
+
+```c++
+int ledPin = 12;                // choose the pin for the LED
+int inputPin = 3;               // choose the input pin (for PIR sensor)
+int pirState = LOW;             // we start, assuming no motion detected
+int val = 0;                    // variable for reading the pin status
+ 
+void setup() {
+  pinMode(ledPin, OUTPUT);      // declare LED as output
+  pinMode(inputPin, INPUT);     // declare sensor as input
+ 
+  Serial.begin(9600);
+}
+ 
+void loop(){
+  val = digitalRead(inputPin);  // read input value
+  if (val == HIGH) {            // check if the input is HIGH
+    digitalWrite(ledPin, HIGH);  // turn LED ON
+    if (pirState == LOW) {
+      // we have just turned on
+      Serial.println("Motion detected!");
+      // We only want to print on the output change, not state
+      pirState = HIGH;
+    }
+  } else {
+    digitalWrite(ledPin, LOW); // turn LED OFF
+    if (pirState == HIGH){
+      // we have just turned of
+      Serial.println("Motion ended!");
+      // We only want to print on the output change, not state
+      pirState = LOW;
+    }
+  }
+}
+
+```
+
+
