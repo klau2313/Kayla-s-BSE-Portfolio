@@ -99,6 +99,8 @@ In this starter arduino project, I used the PIR Motion Sensor as my input and a 
 # Schematics
 
 ![Headstone Image](PIRdiagram.png)
+![Headstone Image](potentiometers.png)
+These are the potentiometers in the PIR. The one on the left controls the distance and sensitivity and the right controls the time.
 
 # Code
 
