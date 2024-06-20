@@ -53,9 +53,9 @@ For your second milestone, explain what you've worked on since your previous mil
 - What your plan is to complete your project
 -->
 # Summary
-The omni wheel robot has 4 motors; each pair of motors is controlled by a motor driver.  On the front of the driver, there are four input pins. Those pins are connected to the arduino, they tell the motors to either move forward or backward through the words, “HIGH” and “LOW”.  There are two output pins on each side of the motor driver; those are connected to the motors itself, giving it power and direction.
+The omni wheel robot has 4 motors; each pair of motors is controlled by a motor driver.  On the front of the driver, there are four input pins. Those pins are connected to the arduino, they tell the motors to either move forward or backward through the key words, “HIGH” and “LOW”.  There are two output pins on each side of the motor driver; those are connected to the motors itself, giving it power and direction.
 
-The motor drivers use H-bridges which is a circuit with four switches that are connected to the motor. Power from one side is opened while the other is closed; which is seen through the input pins. There is one path for current to flow through which makes my motors move forwards or backwards when “HIGH” or “LOW”. 
+The motor drivers use H-bridges which is a circuit with four switches that are connected to the motor. Power from one side is opened while the other is closed; which goes through the four input pins. There is one path for current to flow through which makes my motors move forwards or backwards when “HIGH” or “LOW”. 
 
 ```c++
    digitalWrite(motor1pin1, HIGH);
