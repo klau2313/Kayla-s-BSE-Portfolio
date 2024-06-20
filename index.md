@@ -65,7 +65,7 @@ The motor drivers use H-bridges which is a circuit with four switches that are c
 ```
 In this code, pin 1 is "opened" making the motors only move forwards, if I were to switch pin 1 to “LOW” and pin 2 to “HIGH”, the motors would move the opposite direction. 
 
-
+![H-Bridge](hbridge.png)
 
 The input pins are connected to the arduino which follows the code. So far, I've only made it move forward, but could change it to move backward later. I also added 5 batteries, which add to about 7.5 V so that the motors would get enough power to move all four wheels at the same speed. At first, the motors were not getting enough power since all the power was from the arduino which has a limit of 5 V. The motors each need about 2 V or less, so the batteries provided enough power for all of them. Later, I plan to put ultrasonic detectors around the robot so it can detect objects in its way, stop, and move around it. Through this first milestone, I learned how the motor drivers work, how to code a bit more, and the path of electricity in my circuit.
 
