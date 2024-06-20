@@ -53,7 +53,22 @@ For your second milestone, explain what you've worked on since your previous mil
 - What your plan is to complete your project
 -->
 # Summary
-The omniwheel robot has 4 motors, each pair of motors is controlled by a motor driver. There are two output pins on each side of the motor driver, those are connected to the motors itself, giving it power and direction. On the front of the driver, there are four input pins. Those pins are connected to the arduino, they tell the motors to either move forward or backward. In the image below of the motor driver parts, motor 1 uses in1 and in2 and motor 2 uses in3 and in4. Pins in1 and in3 move the motors forward and in2 and in4 move it backwards. The input pins are connected to the arduino which follows the code. So far, I've only made it move forward but could change it to move backward later. I also added 5 batteries, which is about 7.5 V so that the motors would get enough power to move all four wheels at the same speed. At first, the motors were not getting enough power since all the power was from the arduino which has a limit of 5 V. The motors each need about 2 V or less so the batteries provided enough power for all of them. Later, I plan to put ultrasonic detectors around the robot so it can detect objects in its way, stop and move around it. Through this first milestone, I learned how the motor drivers work, how to code a bit more, and the path of electricity in my circuit. 
+The omni wheel robot has 4 motors; each pair of motors is controlled by a motor driver.  On the front of the driver, there are four input pins. Those pins are connected to the arduino, they tell the motors to either move forward or backward through the words, “HIGH” and “LOW”.  There are two output pins on each side of the motor driver; those are connected to the motors itself, giving it power and direction.
+
+The motor drivers use H-bridges which is a circuit with four switches that are connected to the motor. Power from one side is opened while the other is closed; which is seen through the input pins. There is one path for current to flow through which makes my motors move forwards or backwards when “HIGH” or “LOW”. 
+
+```c++
+   digitalWrite(motor1pin1, HIGH);
+   digitalWrite(motor1pin2, LOW);
+   digitalWrite(motor2pin1, HIGH);
+   digitalWrite(motor2pin2, LOW);
+```
+In this code, pin 1 is "opened" making the motors only move forwards, if I were to switch pin 1 to “LOW” and pin 2 to “HIGH”, the motors would move the opposite direction. 
+
+
+
+The input pins are connected to the arduino which follows the code. So far, I've only made it move forward, but could change it to move backward later. I also added 5 batteries, which add to about 7.5 V so that the motors would get enough power to move all four wheels at the same speed. At first, the motors were not getting enough power since all the power was from the arduino which has a limit of 5 V. The motors each need about 2 V or less, so the batteries provided enough power for all of them. Later, I plan to put ultrasonic detectors around the robot so it can detect objects in its way, stop, and move around it. Through this first milestone, I learned how the motor drivers work, how to code a bit more, and the path of electricity in my circuit.
+
 
 # Schematics 
 ![Headstone Image](motordriverlabel.png)
@@ -125,8 +140,9 @@ In this starter arduino project, I used the PIR Motion Sensor as my input and a 
 
 # Schematics
 
-![Headstone Image](PIRdiagram.png)
-![Headstone Image](potentiometers.png)
+![PIR diagram](PIRdiagram.png)
+![potentiometer](potentiometers.png)
+
 These are the potentiometers in the PIR. The one on the left controls the distance and sensitivity and the right controls the time.
 
 # Code
