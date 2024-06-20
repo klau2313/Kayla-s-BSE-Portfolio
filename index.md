@@ -40,42 +40,64 @@ For your second milestone, explain what you've worked on since your previous mil
 - What has been surprising about the project so far
 - Previous challenges you faced that you overcame
 - What needs to be completed before your final milestone 
+-->
 
 # First Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BwnA2dhK-hY?si=z6W67eEtSvusYkwm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-For your first milestone, describe what your project is and how you plan to build it. You can include:
+<!---For your first milestone, describe what your project is and how you plan to build it. You can include:
 - An explanation about the different components of your project and how they will all integrate together
 - Technical progress you've made so far
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
-
-I connected 
-
+-->
+# Summary
+The omniwheel robot has 4 motors, each pair of motors is controlled by a motor driver. There are two output pins on each side of the motor driver, those are connected to the motors itself, giving it power and direction. On the front of the driver, there are four input pins. Those pins are connected to the arduino, they tell the motors to either move forward or backward. For example, motor 1 uses in1 and in2 and motor 2 uses in3 and in4. Pins in1 and in3 move the motors forward and in2 and in4 move it backwards. The input pins are connected to the arduino which follows the code. So far, I've only made it move forward but could change it to move backward later. I also added 5 batteries, which is about 7.5 V so that the motors would get enough power to move all four wheels at the same speed. At first, the motors were not getting enough power since all the power was from the arduino which has a limit of 5 V. The motors each need about 2 V or less so the batteries provided enough power for all of them. Later, I plan to put ultrasonic detectors around the robot so it can detect objects in its way, stop and move around it. Through this first milestone, I learned how the motor drivers work, how to code a bit more, and the path of electricity in my circuit. 
 
 # Schematics 
-![Headstone Image](motordriverlabels.png)
+![Headstone Image](motordriverlabel.png)
 ![Headstone Image](motordrivers.png)
 ![Headstone Image](motorsdiagram.png)
 
 # Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
+int motor1pin1 = 5;
+int motor1pin2 = 4;
+int motor2pin1 = 3;
+int motor2pin2 = 2;
+
+int motor3pin1 = 6;
+int motor3pin2 = 7;
+int motor4pin1 = 8;
+int motor4pin2 = 9;
+
 void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial.println("Hello World!");
+     pinMode(motor1pin1, OUTPUT);
+   pinMode(motor1pin2, OUTPUT);
+   pinMode(motor2pin1, OUTPUT);
+   pinMode(motor2pin2, OUTPUT);
+
+  pinMode(motor3pin1, OUTPUT);
+  pinMode(motor3pin2, OUTPUT);
+  pinMode(motor4pin1, OUTPUT);
+  pinMode(motor4pin2, OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+   digitalWrite(motor1pin1, HIGH);
+   digitalWrite(motor1pin2, LOW);
+   digitalWrite(motor2pin1, HIGH);
+   digitalWrite(motor2pin2, LOW);
 
+  digitalWrite(motor3pin1, LOW);
+  digitalWrite(motor3pin2, HIGH);
+  digitalWrite(motor4pin1, LOW);
+  digitalWrite(motor4pin2, HIGH);
 }
-```-->
+
+```
 
 <!---# Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
@@ -93,8 +115,8 @@ One of the best parts about Github is that you can view how other people set up 
 - [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
 - [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
 
-To watch the BSE tutorial on how to create a portfolio, click here. -->
-
+To watch the BSE tutorial on how to create a portfolio, click here. 
+-->
 # Starter Arduino PIR Motion Sensor
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gFlQUq_p7wg?si=AjYj2I2Vaek6ZTxY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
