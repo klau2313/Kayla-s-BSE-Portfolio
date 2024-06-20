@@ -53,8 +53,13 @@ For your first milestone, describe what your project is and how you plan to buil
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
 
+I connected 
+
+
 # Schematics 
-![Headstone Image](PIRdiagram.png)
+![Headstone Image](motordriverlabels.png)
+![Headstone Image](motordrivers.png)
+![Headstone Image](motorsdiagram.png)
 
 # Code
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
