@@ -55,12 +55,17 @@ For your second milestone, explain what you've worked on since your previous mil
 # Summary
 My project is the Omni-Wheel Robot. For my first milestone, I assembled the car together and made all 4 wheels move forward at the same speed. Each wheel has its own motor. The front two wheels are connected to one motor driver and the back two are connected to another motor driver. The motor driver I am using is the L289N model. This motor driver can amplify electrical signals to power, control the motor and enable speed control.  
 
+![motordriver](motordriverpins.png)
 
+Figure 1: Overview of motor control system for this milestone. Each motor is a DC motor and the L298N is a motor driver. The blue input pins control direction for motor 1 and the green input pins control direction for motor 2.
 
-# Schematics 
-![Headstone Image](motordriverlabel.png)
-![Headstone Image](motordrivers.png)
-![Headstone Image](motorsdiagram.png)
+There are 2 output pins on each side called the output pins. Those pins are connected to the motors and give them power. The 4 input pins that connect to the Arduino receive the signal to move the motors in a forward or backward direction. As seen in Figure 1, the blue pins control direction for motor 1 and the green pins control direction for motor 2. The blue pins are called input 1 and input 2, the green pins are called input 3 and input 4. If input pin 1 is “LOW” and input pin 2 is “HIGH”, motor 1 would move in a forward direction. If input pin 1 was “HIGH” and vice-versa, motor 1 would move in the opposite direction, backwards. It works the same way for input pins 3 and 4. If input pin 3 is “LOW” and input pin 4 is “HIGH”, motor 2 would move forwards. If the state of the pins were switched, motor 2 would move backwards. It works this way because the motor driver uses an H-bridge circuit. An H-bridge circuit has 4 switches that can be opened and closed. 
+
+![hbridge](hbridgemodel.webp)
+
+Figure 2: H-bridge circuit overview. SW stands for switch. (Left) Current flows from switch 1 to 4. (Right) Current flows from switch 2 to 3, opposite to the left. Therefore, the motor in the right would move in an opposite direction as the left, according to the current’s flow. 
+
+If pins 1 and 3 were switched on, the switch would be open for pins 2 and 4; this follows the command “LOW” and “HIGH”. Input pins 2 and 4 would be “HIGH” making those motors move forward. If the switch were closed for input pins 2 and 4, then input pins 1 and 3 would be open. The motors would then move backward. See code below:
 
 # Code
 
@@ -100,6 +105,16 @@ void loop() {
 }
 
 ```
+So far, I've only made the car move forward, but could change it to move backward later. I also added 5 batteries, which add to about 7.5 V so that the motors would get enough power to move all four wheels at the same speed. At first, the motors were not getting enough power since all the power was from the arduino which has a limit of 5 V. The motors each need about 2 V or less, so the batteries provided enough power for all of them. Later, I plan to put ultrasonic detectors around the robot so it can detect objects in its way, stop, and move around it. Through this first milestone, I learned how the motor drivers work, how to code a bit more, and the path of electricity in my circuit.
+
+
+
+# Schematics 
+![Headstone Image](motordriverlabel.png)
+![Headstone Image](motordrivers.png)
+![Headstone Image](motorsdiagram.png)
+
+
 
 <!---# Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
