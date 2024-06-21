@@ -52,7 +52,7 @@ For your second milestone, explain what you've worked on since your previous mil
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
 -->
-# Summary
+## Summary
 My project is the Omni-Wheel Robot. For my first milestone, I assembled the car together and made all 4 wheels move forward at the same speed. Each wheel has its own motor. The front two wheels are connected to one motor driver and the back two are connected to another motor driver. The motor driver I am using is the L289N model. This motor driver can amplify electrical signals to power, control the motor and enable speed control.  
 
 ![Headstone Image](motordriverlabel.png)
@@ -69,7 +69,7 @@ There are 2 output pins on each side called the output pins. Those pins are conn
 
 If pins 1 and 3 were switched on, the switch would be open for pins 2 and 4; this follows the command “LOW” and “HIGH”. Input pins 2 and 4 would be “HIGH” making those motors move forward. If the switch were closed for input pins 2 and 4, then input pins 1 and 3 would be open. The motors would then move backward. See code below:
 
-# Code
+## Code
 
 ```c++
 int motor1pin1 = 5;
@@ -111,10 +111,9 @@ So far, I've only made the car move forward, but could change it to move backwar
 
 
 
-# Schematics 
+## Schematics 
 
 ![Headstone Image](motordrivers.png)
-![Headstone Image](motorsdiagram.png)
 
 
 
@@ -142,14 +141,14 @@ To watch the BSE tutorial on how to create a portfolio, click here.
 
 In this starter arduino project, I used the PIR Motion Sensor as my input and a LED as the output. The PIR motion sensor is able to make the LED light up because it is an infared sensor. This means it detects infrared light emitted from nearby objects. When detected, it sends a signal that causes the LED to turn on. All objects emit some type of infrared radiation which is translated as thermal energy that the PIR can pick up. It also uses two potentiometers that can focus on the time and distance of when to signal the output. These potentiometers can be moved clockwise to change how far an object it will detect and how much time for the LED to turn on. Potentiometers act as a resistor in the PIR. These can control the sensitivity of the sensors, and also the period of time for which the PIR will signal when motion is detected.This is all connected to the arduino which reads the code that instructs how the LED will turn on. It starts with the PIR state as "LOW" meaning off and when it detects motion the state will change to "HIGH" meaning on. This translates to the LED which will turn on and off based on the PIR's state. 
 
-# Schematics
+## Schematics
 
 ![PIR diagram](PIRdiagram.png)
 ![potentiometer](potentiometers.png)
 
 These are the potentiometers in the PIR. The one on the left controls the distance and sensitivity and the right controls the time.
 
-# Code
+## Code
 
 ```c++
 int ledPin = 12;                // choose the pin for the LED
