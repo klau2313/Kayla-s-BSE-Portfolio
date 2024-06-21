@@ -53,21 +53,8 @@ For your second milestone, explain what you've worked on since your previous mil
 - What your plan is to complete your project
 -->
 # Summary
-The omni wheel robot has 4 motors; each pair of motors is controlled by a motor driver.  On the front of the driver, there are four input pins. Those pins are connected to the arduino, they tell the motors to either move forward or backward through the key words, “HIGH” and “LOW”.  There are two output pins on each side of the motor driver; those are connected to the motors itself, giving it power and direction.
+My project is the Omni-Wheel Robot. For my first milestone, I assembled the car together and made all 4 wheels move forward at the same speed. Each wheel has its own motor. The front two wheels are connected to one motor driver and the back two are connected to another motor driver. The motor driver I am using is the L289N model. This motor driver can amplify electrical signals to power, control the motor and enable speed control.  
 
-The motor drivers use H-bridges which is a circuit with four switches that are connected to the motor. Power from one side is opened while the other is closed; which goes through the four input pins. There is one path for current to flow through which makes my motors move forwards or backwards when “HIGH” or “LOW”. 
-
-```c++
-   digitalWrite(motor1pin1, HIGH);
-   digitalWrite(motor1pin2, LOW);
-   digitalWrite(motor2pin1, HIGH);
-   digitalWrite(motor2pin2, LOW);
-```
-In this code, pin 1 is "opened" making the motors only move forwards, if I were to switch pin 1 to “LOW” and pin 2 to “HIGH”, the motors would move the opposite direction. 
-
-![H-Bridge](hbridge.png)
-
-The input pins are connected to the arduino which follows the code. So far, I've only made it move forward, but could change it to move backward later. I also added 5 batteries, which add to about 7.5 V so that the motors would get enough power to move all four wheels at the same speed. At first, the motors were not getting enough power since all the power was from the arduino which has a limit of 5 V. The motors each need about 2 V or less, so the batteries provided enough power for all of them. Later, I plan to put ultrasonic detectors around the robot so it can detect objects in its way, stop, and move around it. Through this first milestone, I learned how the motor drivers work, how to code a bit more, and the path of electricity in my circuit.
 
 
 # Schematics 
