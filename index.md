@@ -57,6 +57,8 @@ My project is the Omni-Wheel Robot. For my first milestone, I assembled the car 
 
 ![Headstone Image](motordriverlabel.png)
 
+See resource link 1
+
 ![motordriver](motordriverpins.png)  
 
 **Figure 1**: Overview of motor control system for this milestone. Each motor is a DC motor and the L298N is a motor driver. The blue input pins control direction for motor 1 and the green input pins control direction for motor 2.
@@ -66,6 +68,8 @@ There are 2 output pins on each side called the output pins. Those pins are conn
 ![hbridge](hbridgemodel.webp)
 
 **Figure 2**: H-bridge circuit overview. SW stands for switch. (Left) Current flows from switch 1 to 4. (Right) Current flows from switch 2 to 3, opposite to the left. Therefore, the motor in the right would move in an opposite direction as the left, according to the current’s flow. 
+
+See resource link 2
 
 If pins 1 and 3 were switched on, the switch would be open for pins 2 and 4; this follows the command “LOW” and “HIGH”. Input pins 2 and 4 would be “HIGH” making those motors move forward. If the switch were closed for input pins 2 and 4, then input pins 1 and 3 would be open. The motors would then move backward. See code below:
 
@@ -185,5 +189,11 @@ void loop(){
 }
 
 ```
+# Resources 
+
+https://components101.com/modules/l293n-motor-driver-module 
+
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.allaboutcircuits.com%2Ftechnical-articles%2Fh-bridge-dc-motor-control-complementary-pulse-width-modulation-pwm-shoot-through-dead-time-pwm%2F&psig=AOvVaw0BC5RMgyal_r0N26L42Fhm&ust=1719948768117000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCODImM7KhocDFQAAAAAdAAAAABAE 
+
 
 
