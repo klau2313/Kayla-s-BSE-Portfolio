@@ -26,7 +26,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE
-
+-->
 
 
 # Second Milestone
@@ -35,12 +35,56 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone 
--->
+## Summary
+For my second milestone, I built an app that can control the Omni-Wheel Robot remotely through Bluetooth. Using the MIT app inventor, my app can control if Omni-Wheel moves forwards, backwards, left, right, and stops.
+
+image
+**Figure 1**: The app connects to the robot through Bluetooth. After the user clicks“Show devices”,  they can select their Bluetooth, go back to this screen to control direction through the buttons: F, L, R, B, and S.  
+
+The app connects to the Arduino through the Bluetooth module HC-05 link to this?. The buttons pressed on the app are commands sent to the Arduino. Those app commands are assigned a number. For example, forward is 1 and stop is 5. Each number correlates to a function in the Arduino. The Arduino processes the data in a similar manner: when the Arduino reads the number 1, it knows to use the function, forward. 
+
+ image
+ **Figure 2**:These blocks are what makes the app work. When I press F, it sends the number 1 to the Bluetooth which is sent to the Arduino, calling the function, forward. 
+
+A challenge was the initial connection between the Bluetooth and phone. It took awhile to find the right HC-05 module to connect to. Another issue with the Bluetooth was connecting it to the Arduino and app. I could not figure out if the Arduino was actually receiving commands from the app. I had to use mySerial software so I could see if the commands were actually being read through Bluetooth. I also used Serial.print to see if the commands were received and carried out. So if I pressed F on the app, the serial monitor would print out “go forward” if it read and carried out the command. Although the Bluetooth connection was good and the monitor said it was carrying out the command, the robot still would not move. 
+
+See below an Arduino code snippet of communication between the app and Arduino. 
+
+```c++
+void loop() {
+// 
+  if (bluetooth.available() > 0) {
+    command = bluetooth.read();
+    Serial.println(command);
+  }
+  switch (command) {
+  case 1:
+    forward();
+    Serial.println("go forward");
+    break;
+  case 2:
+    backward();
+    Serial.println("go backward");
+    break;
+  case 3:
+    left();
+    Serial.println("go left");
+    break;
+  case 4:
+    right();
+    Serial.println("go right");
+    break;
+  case 5:
+    stop();
+    Serial.println("STOP");
+    break;
+  default:
+        break;
+  }
+}
+```
+After checking its power and connectivity, I realized Robot needed more power and added another 9V to power the motor drivers. By adding extra power, the motors finally worked and followed the commands sent out by the app. Next, I will change up how much power each motor receives and allow it to make turns. I also want to change the Arduino’s power source and lower the amount of Watts used. 
+
 
 # First Milestone
 
@@ -127,8 +171,8 @@ Don't forget to place the link of where to buy each component inside the quotati
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Arduino | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Motor driver  | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 
 # Other Resources/Examples
