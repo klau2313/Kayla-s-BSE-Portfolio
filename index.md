@@ -38,13 +38,13 @@ For your final milestone, explain the outcome of your project. Key details to in
 ## Summary
 For my second milestone, I built an app that can control the Omni-Wheel Robot remotely through Bluetooth. Using the MIT app inventor, my app can control if Omni-Wheel moves forwards, backwards, left, right, and stops.
 
-![blocks](MITapp2.png)
+![screen](screen.png)
 
 **Figure 1**: The app connects to the robot through Bluetooth. After the user clicks “Show devices”,  they can select their Bluetooth, then go back to this screen to control direction through the buttons: F, L, R, B, and S.  
 
 The app connects to the Arduino through the Bluetooth module [HC-05](https://components101.com/wireless/hc-05-bluetooth-module). The buttons pressed on the app are commands sent to the Arduino. Those app commands are assigned a number. For example, forward is 1 and stop is 5. Each number correlates to a function in the Arduino. The Arduino processes the data in a similar manner: when the Arduino reads the number 1, it knows to use the function, forward. 
 
- ![screen](screen.png)
+ ![blocks](MITapp2.png)
  
  **Figure 2**: These blocks are what makes the app work. When I press F, it sends the number 1 to the Bluetooth which is sent to the Arduino, calling the function, forward. 
 
