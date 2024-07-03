@@ -38,13 +38,15 @@ For your final milestone, explain the outcome of your project. Key details to in
 ## Summary
 For my second milestone, I built an app that can control the Omni-Wheel Robot remotely through Bluetooth. Using the MIT app inventor, my app can control if Omni-Wheel moves forwards, backwards, left, right, and stops.
 
-image
-**Figure 1**: The app connects to the robot through Bluetooth. After the user clicks“Show devices”,  they can select their Bluetooth, go back to this screen to control direction through the buttons: F, L, R, B, and S.  
+![blocks](MITapp2.png)
 
-The app connects to the Arduino through the Bluetooth module HC-05 link to this?. The buttons pressed on the app are commands sent to the Arduino. Those app commands are assigned a number. For example, forward is 1 and stop is 5. Each number correlates to a function in the Arduino. The Arduino processes the data in a similar manner: when the Arduino reads the number 1, it knows to use the function, forward. 
+**Figure 1**: The app connects to the robot through Bluetooth. After the user clicks “Show devices”,  they can select their Bluetooth, then go back to this screen to control direction through the buttons: F, L, R, B, and S.  
 
- image
- **Figure 2**:These blocks are what makes the app work. When I press F, it sends the number 1 to the Bluetooth which is sent to the Arduino, calling the function, forward. 
+The app connects to the Arduino through the Bluetooth module [HC-05](https://components101.com/wireless/hc-05-bluetooth-module). The buttons pressed on the app are commands sent to the Arduino. Those app commands are assigned a number. For example, forward is 1 and stop is 5. Each number correlates to a function in the Arduino. The Arduino processes the data in a similar manner: when the Arduino reads the number 1, it knows to use the function, forward. 
+
+ ![screen](screen.png)
+ 
+ **Figure 2**: These blocks are what makes the app work. When I press F, it sends the number 1 to the Bluetooth which is sent to the Arduino, calling the function, forward. 
 
 A challenge was the initial connection between the Bluetooth and phone. It took awhile to find the right HC-05 module to connect to. Another issue with the Bluetooth was connecting it to the Arduino and app. I could not figure out if the Arduino was actually receiving commands from the app. I had to use mySerial software so I could see if the commands were actually being read through Bluetooth. I also used Serial.print to see if the commands were received and carried out. So if I pressed F on the app, the serial monitor would print out “go forward” if it read and carried out the command. Although the Bluetooth connection was good and the monitor said it was carrying out the command, the robot still would not move. 
 
