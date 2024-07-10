@@ -15,18 +15,53 @@ The omniwheel will be able to move in any direction: forward, backward, right, l
 -->
 ![Headstone Image](Kayla.L.jpg)
   
-<!---# Final Milestone
+# Third Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dl-xJggks3I?si=8PqJib2aKTDHVeEg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-For your final milestone, explain the outcome of your project. Key details to include are:
+<!--For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
--->
+- What you hope to learn in the future after everything you've learned at BSE-->
+
+**Summary**
+
+In my third milestone, I integrated speed controls into my app. In MIT App Inventor, the slider controls the amount of power the motors receive. I can adjust the power by moving the slider left and right.
+
+![Headstone Image](sliderimage.png)
+
+**Figure 1**: The slider controls how much power the motors receive. When moved to the left, the speed decreases. When moved to the right, the speed will increase.
+
+I was able to control the speed by using the enable pins on the motor driver. For example, ENA controls motor 1 while ENB controls motor 2.
+
+!;[Headstone Image](enablepins.png)
+
+**Figure 2**: ENA and ENB pins are placed next to the input pins. ENA controls OUT2 while ENB controls OUT3, each of which carries power to their respective motors.
+
+I connected those enable pins to PWM digital pins. PWM (Pulse Width Modulation) is used as a way to control the power delivered by an electric signal. Using PWM pins, I am able to use analogWrite to control the amount of power given to the motors. This allows me to be more specific with how fast the motor will move. The duty cycle of PWM is the relative amount of time the signal is ON or OFF and uses that average as a value. However, the parameters of the PWM pins can only read values between 0 and 255. It uses the duty cycle which is the ratio of time a circuit is ON compared to the time the circuit is OFF. So 255 is 1 and 0 is 0. I set my max value to 250 and my min to 50. In the duty cycle, 250 would be 98% and 50 would be 19%.
+
+Below is a snippet of the code controlling speed:
+```c++
+ default:
+    if ((command >= 50) & (command <= 250)); {
+      Setspeed(command);
+    }
+    break;
+  }
+}
+
+void Setspeed(int speed) {
+  analogWrite(motor3ena, speed);
+  analogWrite(motor4enb, speed); 
+  analogWrite(motor1enb, speed);
+  analogWrite(motor2ena, speed);
+}
+```
+A challenge I had was figuring out if the Arduino was actually receiving the commands from the app. Since I used all the digital pins in the Arduino, including the RX and TX pins, I couldn't see if the Arduino was actually receiving commands from the app. I had to move some of my other wires to analog pins and convert those to digitalWrite code in order to see if the Bluetooth connection was working through the serial monitor. Another issue I had was the amount of power going to the motor drivers wasn’t enough. Even though the serial monitor showed that the Arduino was receiving and carrying out the commands, it didn’t physically carry out the action. I checked the continuity and voltage and realized the motor drivers needed more power. I also changed the power source for the Arduino because last time I realized I was supplying too many Watts to the Arduino.
+Next, I will be adding modifications to the Omni-Wheel Robot. I plan to add ultrasonic sensors at the front, back, and sides to detect objects. When the object is detected, the Omni-Wheel should stop. I also want to add LEDs that will light up when an object is detected.
+
+
 
 
 # Second Milestone
