@@ -35,7 +35,7 @@ In my third milestone, I integrated speed controls into my app. In MIT App Inven
 
 I was able to control the speed by using the enable pins on the motor driver. For example, ENA controls motor 1 while ENB controls motor 2.
 
-!;[Headstone Image](enablepins.png)
+![Headstone Image](enablepins.png)
 
 **Figure 2**: ENA and ENB pins are placed next to the input pins. ENA controls OUT2 while ENB controls OUT3, each of which carries power to their respective motors.
 
