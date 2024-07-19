@@ -17,7 +17,79 @@ The omniwheel will be able to move in any direction: forward, backward, right, l
 
 # Modifications
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VTb9zuPYDkQ?si=9M39fKevQpKQHtLy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Summary
+
+ ![Headstone image](Flowchart.png)
  
+ **Figure 1**: Process of how my ultrasonic sensors are able to prevent my Omniwheel Robot from hitting obstacles. 
+
+I decided to add ultrasonic sensors to my Omniwheel Robot to further enhance it. The purpose of these ultrasonic sensors are to model the sensors in cars today. I placed sensors on the front and back of the robot so that it would automatically stop if there was an object or obstacle 20 cm in front of it. 
+
+The ultrasonic sensor works sort of like echolocation. It can measure the distance of an object by sending out a short ultrasonic echo that bounces off the object and back to the sensor. It can now calculate how far the distance of the object is by using the formula: d= (v*t)/2. D is the distance, v is the velocity of sound in air which is 343 m/s, and t is the time. Since the sound is reflected back, you have to divide by two to get the actual distance. Without dividing by two, you are doubling the distance instead. As shown in Figure 2, the distance traveled is actually twice the distance of the object. 
+
+![Headstone image](diagramofultra.png)
+
+**Figure 2**: Trigger and echo pins control the transmitter and receiver. It sends the echo through the transmitter which is the trigger and receives the reflected sound through the receiver. 
+
+See resource link 3
+
+Whenever the sensors detect something within a 20 cm range, it will automatically stop so that it won’t hit the object in front of it. When it moves away from the object, increasing the distance between the robot and object, it will be able to move again. 
+
+![Headstone Image](picofultra.png)
+**Figure 3**: This is the ultrasonic sensor on the back of my robot. It is measuring the distance of anything in front of it. If the motors are running and an object is in the 20 cm range, the Arduino will know that distance and tell the motors to stop. 
+
+Some challenges I encountered were both software and hardware. At first my ultrasonic sensors were faulty and not reading any distance. I had to test them all on a separate breadboard to see which ultrasonic sensors were working. After I replaced the faulty ultrasonics, I wired them to my arduino and set up a switch that turns only the ultrasonics on. Another issue I had was in the code. My Omniwheel would not stop when the distance was less than 20. I had to set up a global variable, move, which is equal to 1. If “move” is 0 then the robot will not move. I then created a minimum distance which was 10,000 and created a function for the ultrasonic sensors to work. In that function, if the distance was less than the minimum distance, then it would update to be equal to that distance. In “void loop”, I made sure the robot would stop if the distance measured was less than 20. That way, move would be equal to 0 and follow the function, stop. So now when I put an object 20 cm away, the robot would stop moving. Although, when I moved the object away and tried to move my robot again, it refused to start. I realized that I had to reset the minimum distance and the variable “move” to 1. I tested it again and when I moved the object away, it started to move again automatically. 
+
+
+Below are some snippets of the code: 
+```c++
+int move = 1; 
+
+int mindistance = 10000;
+```
+```c++
+void loop() {
+// put your main code here, to run repeatedly:
+  mindistance = 10000;
+  move = 1;
+
+  ultrasonicbackward();
+  Serial.print("mindistance: ");
+  Serial.println(mindistance);
+
+  if (mindistance < 20){
+    stop();
+    move = 0;
+  }
+  if (bluetooth.available() > 0) {
+  command = bluetooth.read();
+  Serial.println(command);
+  }
+```
+```c++
+void ultrasonicbackward() {
+  digitalWrite(backwardtrigpin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(backwardtrigpin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(backwardtrigpin, LOW);
+
+  duration = pulseIn(backwardechopin, HIGH);
+  distance = (duration*.0343)/2;
+  if (distance < mindistance){
+    mindistance = distance;
+  }
+  Serial.print("Distance2: ");
+  Serial.println(distance);
+  delay(100);
+
+}
+```
+Next, I would like to add sensors to the left and right, so when I am moving my robot around, it will never hit anything. Now that my project is finished, I would love to continue doing more projects involving robotics and maybe wearable technology. This initial project showed me how much I can learn with resources online and I would like to continue expanding that knowledge. 
+
+
 
   
 # Third Milestone
@@ -280,5 +352,5 @@ https://components101.com/modules/l293n-motor-driver-module
 
 https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.allaboutcircuits.com%2Ftechnical-articles%2Fh-bridge-dc-motor-control-complementary-pulse-width-modulation-pwm-shoot-through-dead-time-pwm%2F&psig=AOvVaw0BC5RMgyal_r0N26L42Fhm&ust=1719948768117000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCODImM7KhocDFQAAAAAdAAAAABAE 
 
-
+https://www.google.com/url?sa=i&url=https%3A%2F%2Fosoyoo.com%2F2018%2F09%2F18%2Fmicro-bit-lesson-using-the-ultrasonic-module%2F&psig=AOvVaw0IzYvAPNOJb7dh5dvVKNQ0&ust=1721501901866000&source=images&cd=vfe&opi=89978449&ved=0CBIQjhxqFwoTCLC0kLzks4cDFQAAAAAdAAAAABAW
 
