@@ -14,6 +14,11 @@ The omniwheel will be able to move in any direction: forward, backward, right, l
 <!---**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 -->
 ![Headstone Image](kaylaproject.png)
+
+# Modifications
+
+ 
+
   
 # Third Milestone
 
@@ -61,7 +66,7 @@ void Setspeed(int speed) {
 A challenge I had was figuring out if the Arduino was actually receiving the commands from the app. Since I used all the digital pins in the Arduino, including the RX and TX pins, I couldn't see if the Arduino was actually receiving commands from the app. I had to move some of my other wires to analog pins and convert those to digitalWrite code in order to see if the Bluetooth connection was working through the serial monitor. Another issue I had was the amount of power going to the motor drivers wasn’t enough. Even though the serial monitor showed that the Arduino was receiving and carrying out the commands, it didn’t physically carry out the action. I checked the continuity and voltage and realized the motor drivers needed more power. I also changed the power source for the Arduino because last time I realized I was supplying too many watts to the Arduino.
 Next, I will be adding modifications to the Omni-Wheel Robot. I plan to add ultrasonic sensors at the front, back, and sides to detect objects. When the object is detected, the Omni-Wheel should stop. I also want to add LEDs that will light up when an object is detected.
 
-Overall, my time at Bluestamp was really enjoyable. I came into Bluestamp knowing nothing and walking away, I am more confident in the new skills I've learned. I was even able to learn how to code, which is something I've been wanting to learn before coming to Bluestamp. I had some pretty big challenges with my project, however, since I had no expereince. It was hard to code my robot and create an app. It was especially hard to connect those together through Bluetooth. After a lot of research and tests, I was fianlly able to figure it out. The Bluetooth was a pretty major part of my project and I thought figuring out that part was a big triumph. Now that I have all these new skills and knowledge, I want to continue learning by doing more independent projects in the future.
+Overall, my time at Bluestamp was really enjoyable. I came into Bluestamp knowing nothing and walking away, I am more confident in the new skills I've learned. I was even able to learn how to code, which is something I've been wanting to learn before coming to Bluestamp. I had some pretty big challenges with my project, however, since I had no expereince. It was hard to code my robot and create an app. It was especially hard to connect those together through Bluetooth. After a lot of research and tests, I was finally able to figure it out. The Bluetooth was a pretty major part of my project and I thought figuring out that part was a big triumph. Now that I have all these new skills and knowledge, I want to continue learning by doing more independent projects in the future.
 
 
 # Second Milestone
